@@ -10,6 +10,7 @@ import PrivateRoute from "./route-config/PrivateRoute";
 import AuthContext from "./hooks/authContext";
 import Books from "./components/Books";
 import BookReview from "./components/BookReview";
+import { Helmet } from "react-helmet";
 
 const App = () => {
   const [auth, setAuth] = useState(false);
@@ -18,6 +19,9 @@ const App = () => {
   };
   return (
     <BrowserRouter>
+      <Helmet>
+        <link rel="icon" href="/logo.png" />
+      </Helmet>
       <AuthContext.Provider value={{ status: auth, login }}>
         <Navigate />
         <Routes>
